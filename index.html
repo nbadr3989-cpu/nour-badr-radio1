@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>نور بدر | كل أنواع الراديوهات في مكان واحد</title>
+  <meta name="description" content="نور بدر - متجرك المتخصص في الراديوهات بكل أنواعها وأحجامها، بأسعار مناسبة وخدمة موثوقة. تصفح الراديوهات واطلب مباشرة عبر واتساب.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="نور بدر | كل أنواع الراديوهات في مكان واحد">
+  <meta property="og:description" content="تشكيلة متنوعة من الراديوهات بأسعار مناسبة وخدمة موثوقة.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/logo.png">
+  <meta name="theme-color" content="#000000">
+
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+
+  <!-- خطوط الموقع -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- أيقونات (مجانية ومفتوحة المصدر) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- خلفية العلامة التجارية الثابتة (صورة نور بدر مع بلور خفيف وتظليل داكن لوضوح النصوص) -->
+  <div class="site-bg" aria-hidden="true">
+    <div class="site-bg__image"></div>
+    <div class="site-bg__scrim"></div>
+  </div>
+
+  <!-- خدمات Firebase (تحليلات حقيقية + تسجيل الدخول) — لا تحذف هذه الأسطر -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+
+  <!-- ===================== Header بسيط ثابت ===================== -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <img src="images/logo.png" alt="شعار نور بدر" class="topbar__logo" onerror="this.classList.add('img-fallback')">
+      <span class="topbar__name"> Nour_Badr </span>
+
+      <nav class="topbar__nav" aria-label="روابط سريعة">
+        <a href="#home">الرئيسية</a>
+        <a href="#products">المنتجات</a>
+        <a href="#why">ليه نور بدر</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+
+      <button type="button" id="topbarAccountBtn" class="topbar__account" aria-label="حسابي">
+        <span id="topbarAccountIcon">👤</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== Hero Section ===================== -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <!-- صف الثقة -->
+        <div class="trust-row anim" style="--d:0.05s">
+          <div class="trust-avatars">
+            <span class="trust-avatar"><i class="fa-solid fa-shield-halved"></i></span>
+            <span class="trust-avatar"><i class="fa-solid fa-truck-fast"></i></span>
+            <span class="trust-avatar"><i class="fa-solid fa-headset"></i></span>
+          </div>
+          <span class="trust-pill" id="trustText">عملاء بيثقوا في نور بدر كل يوم</span>
+        </div>
+
+        <h1 class="hero__title anim" style="--d:0.12s">
+          <span class="hero__title-line">كل أنواع الراديوهات</span>
+          <span class="hero__title-line hero__title-line--accent">في مكان واحد</span>
+        </h1>
+
+        <p class="hero__desc anim" style="--d:0.28s">
+          نور بدر متخصص في الراديوهات بكل أنواعها وأحجامها وماركاتها،
+          بأسعار مناسبة، جودة موثوقة، واهتمام حقيقي بعميلنا.
+        </p>
+
+        <div class="hero__actions anim" style="--d:0.4s">
+          <a href="#products" class="btn btn--primary btn--glow">تصفح الراديوهات</a>
+          <a href="#contact" class="btn btn--outline">تواصل معنا</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== إحصائيات نور بدر ===================== -->
+    <section class="stats-footer">
+      <div class="stat anim" style="--d:0.5s">
+        <span class="stat__icon">+</span>
+        <span class="stat__value" data-count data-target="50" data-suffix="" data-decimals="0">0</span>
+        <span class="stat__label">نوع راديو متاح</span>
+      </div>
+      <div class="stat anim" style="--d:0.58s">
+        <span class="stat__icon">%</span>
+        <span class="stat__value" data-count data-target="98" data-suffix="%" data-decimals="0">0</span>
+        <span class="stat__label">رضا العملاء</span>
+      </div>
+      <div class="stat anim" style="--d:0.66s">
+        <span class="stat__icon">★</span>
+        <span class="stat__value" data-count data-target="4.9" data-suffix="/5" data-decimals="1">0</span>
+        <span class="stat__label">تقييم العملاء</span>
+      </div>
+      <div class="stat anim" style="--d:0.74s">
+        <span class="stat__icon">⏱</span>
+        <span class="stat__value" data-count data-target="24" data-suffix="/7" data-decimals="0">0</span>
+        <span class="stat__label">دعم واتساب</span>
+      </div>
+    </section>
+
+    <!-- ===================== قسم التصنيفات ===================== -->
+    <section class="section reveal-on-scroll" id="categories-section">
+      <div class="section__head">
+        <h2 class="section__title">تصفح حسب نوع الراديو</h2>
+      </div>
+      <div class="categories" id="categoriesList">
+        <!-- يتم توليد التصنيفات تلقائيًا من js/app.js -->
+      </div>
+    </section>
+
+    <!-- ===================== قسم المنتجات ===================== -->
+    <section class="section reveal-on-scroll" id="products">
+      <div class="section__head">
+        <h2 class="section__title">راديوهاتنا</h2>
+        <p class="section__sub">مختارة بعناية بأفضل سعر</p>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- يتم توليد كروت المنتجات تلقائيًا من js/app.js -->
+      </div>
+    </section>
+
+    <!-- ===================== لماذا نور بدر ===================== -->
+    <section class="section section--tint reveal-on-scroll" id="why">
+      <div class="section__head">
+        <h2 class="section__title">ليه تختار نور بدر؟</h2>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Zm0 7L2 14l10 5 10-5-10-5Z"/></svg>
+          </div>
+          <h3 class="feature__title">أسعار مناسبة</h3>
+          <p class="feature__desc">أفضل قيمة مقابل السعر لكل راديو.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v6H4zM4 14h7v6H4zM13 14h7v6h-7z"/></svg>
+          </div>
+          <h3 class="feature__title">تشكيلة متنوعة</h3>
+          <p class="feature__desc">راديوهات لكل الاستخدامات والأذواق.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z"/></svg>
+          </div>
+          <h3 class="feature__title">خدمة موثوقة</h3>
+          <p class="feature__desc">تعامل صريح وسريع مع كل عميل.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 22c5.5-4 8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 2.5 8 8 12Z"/></svg>
+          </div>
+          <h3 class="feature__title">خدمة ما بعد البيع</h3>
+          <p class="feature__desc">دايمًا في خدمتك بعد ما تشتري.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== قسم التواصل ===================== -->
+    <section class="section contact reveal-on-scroll" id="contact">
+      <div class="section__head">
+        <h2 class="section__title">محتاج حاجة معينة؟</h2>
+        <p class="section__sub">تواصل مع نور بدر دلوقتي</p>
+      </div>
+
+      <a href="#" id="contactWhatsappBtn" class="btn btn--whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" class="btn__icon" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.8c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3Z"/></svg>
+        راسلنا على واتساب
+      </a>
+
+      <div class="contact-info">
+        <div class="contact-info__row">
+          <span class="contact-info__label">📞 الهاتف</span>
+          <span id="contactPhone" class="contact-info__value"></span>
+        </div>
+        <div class="contact-info__row">
+          <span class="contact-info__label">📍 العنوان</span>
+          <span id="contactAddress" class="contact-info__value"></span>
+        </div>
+        <div class="contact-info__row">
+          <span class="contact-info__label">🕒 مواعيد العمل</span>
+          <span id="contactHours" class="contact-info__value"></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== Lightbox لتكبير صورة المنتج ===================== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox__close" id="lightboxClose" aria-label="إغلاق الصورة">✕</button>
+    <div class="lightbox__stage">
+      <img src="" alt="" id="lightboxImage" class="lightbox__image">
+    </div>
+    <p class="lightbox__caption" id="lightboxCaption"></p>
+  </div>
+
+  <!-- ===================== نافذة تسجيل الدخول / حساب جديد ===================== -->
+  <div class="auth-modal" id="authModal" aria-hidden="true">
+    <div class="auth-modal__backdrop" id="authModalBackdrop"></div>
+    <div class="auth-modal__panel">
+      <button type="button" class="auth-modal__close" id="authModalClose" aria-label="إغلاق">✕</button>
+
+      <!-- حالة: مسجل دخول بالفعل -->
+      <div class="auth-panel" id="authPanelAccount" hidden>
+        <div class="auth-avatar">👤</div>
+        <h3 class="auth-title" id="authAccountName">أهلًا بيك</h3>
+        <p class="auth-sub" id="authAccountEmail"></p>
+        <button type="button" class="btn btn--primary auth-full" id="authLogoutBtn">تسجيل الخروج</button>
+      </div>
+
+      <!-- حالة: تسجيل الدخول / حساب جديد -->
+      <div id="authPanelForms">
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab is-active" data-auth-tab="login">تسجيل الدخول</button>
+          <button type="button" class="auth-tab" data-auth-tab="signup">حساب جديد</button>
+        </div>
+
+        <p class="auth-error" id="authError" hidden></p>
+        <p class="auth-notice" id="authFirebaseNotice" hidden>
+          خاصية الحسابات لسه مش مفعّلة على الموقع. صاحب المتجر محتاج يربط حساب Firebase مجاني أولًا (الشرح في README).
+        </p>
+
+        <form class="auth-form" id="authPanelLogin" data-auth-panel="login">
+          <label class="auth-label">البريد الإلكتروني
+            <input type="email" name="email" class="auth-input" required autocomplete="email">
+          </label>
+          <label class="auth-label">كلمة المرور
+            <input type="password" name="password" class="auth-input" required autocomplete="current-password">
+          </label>
+          <button type="submit" class="btn btn--primary auth-full">تسجيل الدخول</button>
+        </form>
+
+        <form class="auth-form" id="authPanelSignup" data-auth-panel="signup" hidden>
+          <label class="auth-label">الاسم
+            <input type="text" name="name" class="auth-input" required autocomplete="name">
+          </label>
+          <label class="auth-label">رقم الموبايل
+            <input type="tel" name="phone" class="auth-input" required autocomplete="tel" placeholder="01xxxxxxxxx">
+          </label>
+          <label class="auth-label">البريد الإلكتروني
+            <input type="email" name="email" class="auth-input" required autocomplete="email">
+          </label>
+          <label class="auth-label">كلمة المرور
+            <input type="password" name="password" class="auth-input" required minlength="6" autocomplete="new-password">
+          </label>
+          <button type="submit" class="btn btn--primary auth-full">إنشاء الحساب</button>
+        </form>
+
+        <div class="auth-divider"><span>أو</span></div>
+
+        <div class="auth-social">
+          <button type="button" class="btn-social" disabled title="قريبًا">
+            <span>🔴</span> المتابعة عبر جوجل — قريبًا
+          </button>
+          <button type="button" class="btn-social" disabled title="قريبًا">
+            <span>🔵</span> المتابعة عبر فيسبوك — قريبًا
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> نور بدر. جميع الحقوق محفوظة.</p>
+    <a href="dashboard.html" class="footer__admin-link">لوحة التحكم</a>
+  </footer>
+
+  <!-- ===================== Bottom Navigation ===================== -->
+  <nav class="bottom-nav" aria-label="التنقل الرئيسي">
+    <a href="#home" class="bottom-nav__item is-active" data-nav>
+      <span class="bottom-nav__icon">🏠</span>
+      <span class="bottom-nav__label">الرئيسية</span>
+    </a>
+    <a href="#products" class="bottom-nav__item" data-nav>
+      <span class="bottom-nav__icon">📻</span>
+      <span class="bottom-nav__label">الراديوهات</span>
+    </a>
+    <a href="#" id="navWhatsapp" class="bottom-nav__item" target="_blank" rel="noopener">
+      <span class="bottom-nav__icon">📱</span>
+      <span class="bottom-nav__label">واتساب</span>
+    </a>
+    <a href="#contact" class="bottom-nav__item" data-nav>
+      <span class="bottom-nav__icon">📍</span>
+      <span class="bottom-nav__label">الموقع</span>
+    </a>
+  </nav>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

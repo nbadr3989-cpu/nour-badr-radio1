@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>لوحة تحكم نور بدر</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- ===================== شاشة كلمة السر ===================== -->
+  <div class="lock-screen" id="lockScreen">
+    <div class="lock-card">
+      <div class="lock-card__logo">📊</div>
+      <h1 class="lock-card__title">لوحة تحكم نور بدر</h1>
+      <p class="lock-card__sub">خاص بصاحب المتجر فقط</p>
+
+      <form id="lockForm" class="lock-form">
+        <input type="password" id="lockPassword" class="auth-input" placeholder="كلمة السر" required>
+        <button type="submit" class="btn btn--primary auth-full">دخول</button>
+      </form>
+      <p class="lock-error" id="lockError" hidden>كلمة السر غير صحيحة.</p>
+    </div>
+  </div>
+
+  <!-- ===================== محتوى الداشبورد ===================== -->
+  <div class="dashboard" id="dashboardContent" hidden>
+    <header class="dashboard__header">
+      <div>
+        <h1 class="dashboard__title">📊 لوحة تحكم نور بدر</h1>
+        <p class="dashboard__sub">إحصائيات حقيقية من كل زوار الموقع</p>
+      </div>
+      <button type="button" id="dashboardRefresh" class="btn btn--outline dashboard__refresh">تحديث</button>
+    </header>
+
+    <p class="dashboard-notice" id="dashboardNotice" hidden>
+      التحليلات لسه مش مفعّلة. لازم تربط حساب Firebase مجاني أولًا — راجع README.md
+      في قسم "تفعيل Firebase".
+    </p>
+
+    <section class="dashboard-summary">
+      <div class="summary-card">
+        <span class="summary-card__label">👁️ زيارات الموقع</span>
+        <span class="summary-card__value" id="statVisits">—</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card__label">🛒 إجمالي الطلبات</span>
+        <span class="summary-card__value" id="statOrders">—</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card__label">🖼️ إجمالي مشاهدات المنتجات</span>
+        <span class="summary-card__value" id="statViews">—</span>
+      </div>
+    </section>
+
+    <section class="dashboard-table-wrap">
+      <h2 class="dashboard-table__title">تفاصيل كل منتج</h2>
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>المنتج</th>
+            <th>مرات المشاهدة</th>
+            <th>مرات الطلب</th>
+          </tr>
+        </thead>
+        <tbody id="dashboardTableBody">
+          <tr><td colspan="3" class="dashboard-table__empty">جاري التحميل...</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <a href="index.html" class="dashboard-back">⬅ العودة للموقع</a>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
